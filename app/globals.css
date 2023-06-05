@@ -2,26 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* .containerPostContent{
+  background-color: red;
+} */
+
+.containerPostContent h1{
+  font-size: 2.25rem;
+  margin-bottom: 1.5rem;
+  font-weight: bolder;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.containerPostContent h2{
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: bolder;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.containerPostContent h3{
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  font-weight: bolder;
+}
+
+.containerPostContent h4{
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: bolder;
+}
+
+.containerPostContent h5{
+  font-size: 0.75rem;
+  margin-bottom: 1.5rem;
+  font-weight: bolder;
+}
+
+.containerPostContent h6{
+  font-size: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: bolder;
+}
+
+.containerPostContent code{
+  padding: .5rem;
+  border-radius: 8px;
 }
