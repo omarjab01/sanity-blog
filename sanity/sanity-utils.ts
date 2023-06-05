@@ -19,7 +19,9 @@ export function urlFor(source) {
 export async function getPosts(): Promise <PostType[]>{
     return client.fetch(
         groq`*[_type == 'blog']{
-            _id, _createdAt, title, description, "slug": slug.current, "image": image.asset->url, tag, content, dataPubblicazione
+            _id, _createdAt, title, description, "slug": slug.current, "image": image.asset->url,
+            'categoria' : *[_id == ^.categoria._ref][0],
+            content, dataPubblicazione
         }`
     )
 }
@@ -27,7 +29,10 @@ export async function getPosts(): Promise <PostType[]>{
 export async function getPost(slug: string): Promise <PostType>{
     return client.fetch(
         groq`*[_type == 'blog' && slug.current == $slug][0]{
-            _id, _createdAt, title, description, "slug": slug.current, "image": image.asset->url, tag, content, dataPubblicazione
+            _id, _createdAt, title, description,
+            'categoria' : *[_id == ^.categoria._ref][0],
+            'autore' : *[_id == ^.autore._ref][0],
+            "slug": slug.current, "image": image.asset->url, tag, content, dataPubblicazione
         }`, {slug}
     )
 }

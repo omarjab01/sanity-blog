@@ -14,9 +14,16 @@ const post = {
             type: 'text'
         },
         {
-            name: 'tag',
-            title: 'Tag',
-            type: 'string'
+            name: 'categoria',
+            title: 'Categoria',
+            type: 'reference',
+            to: [{type: 'categoria'}]
+        },
+        {
+            name: 'autore',
+            title: 'Autore',
+            type: 'reference',
+            to: [{type: 'autore'}]
         },
         {
             name: 'slug',
@@ -38,8 +45,8 @@ const post = {
             ]
         },
         {
-            title: 'dataPubblicazione',
-            name: 'Data',
+            name: 'dataPubblicazione',
+            title: 'Data Pubblicazione',
             type: 'date',
             options: {
               dateFormat: 'YYYY-MM-DD',

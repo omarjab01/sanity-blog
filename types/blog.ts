@@ -9,5 +9,7 @@ export type PostType = {
     image: 'string',
     slug: 'string',
     content: PortableTextBlock[],
-    data: Date
+    dataPubblicazione: 'string',
+    categoria: {nome: 'string', categoria: 'string'},
+    autore: {nome: 'string'}
 }
