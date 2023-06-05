@@ -50,7 +50,7 @@ const post = {
             name: 'content',
             title: 'Content',
             type: 'array',
-            of: [{type: 'block'}, {type: 'image'}]
+            of: [{type: 'block'}, {type: 'image'}, {type: 'code'}]
         }
     ]
 }

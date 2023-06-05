@@ -1,15 +1,20 @@
 import { PostType } from "@/types/blog";
 import { createClient, groq } from "next-sanity";
-import { useNextSanityImage } from 'next-sanity-image';
+import ImageUrlBuilder from '@sanity/image-url';
 
 
 const client = createClient({
     projectId: "inclc88x",
     dataset: "production",
     apiVersion: "2023-06-04",
+    useCdn: true
 });
 
+const builder = ImageUrlBuilder(client)
 
+export function urlFor(source) {
+  return builder.image(source)
+}
 
 export async function getPosts(): Promise <PostType[]>{
     return client.fetch(

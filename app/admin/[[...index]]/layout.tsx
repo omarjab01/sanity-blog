@@ -11,9 +11,11 @@ export const metadata = {
     children: React.ReactNode
   }) {
     return (
-      <>
-        {children}
-      </>
+      <html>
+        <body>
+          {children}
+        </body>
+      </html>
     )
   }
 
