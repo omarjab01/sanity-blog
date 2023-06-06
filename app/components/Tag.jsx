@@ -1,3 +1,5 @@
+import { convertToSlug } from '@/sanity/sanity-utils';
+import Link from 'next/link';
 import React from 'react'
 
 const Tag = ({ tag }) => {
@@ -24,7 +26,9 @@ const Tag = ({ tag }) => {
 
 
   return (
-    <div className={`${style} px-3 py-1 w-fit rounded-full text-xs`}>{tag}</div>
+    <Link href={`/category/${convertToSlug(tag)}`}>
+      <small className={`${style} px-3 py-1 w-fit rounded-full text-xs`}>{tag}</small>
+    </Link>
   )
 
 }
