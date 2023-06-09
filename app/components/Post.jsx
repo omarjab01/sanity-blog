@@ -9,7 +9,7 @@ const Post = ({ data }) => {
         <article className="mb-8">
             <div className="relative">
                 {/* <span className="px-3 py-1 rounded-full absolute top-2 right-2 bg-purple-500 text-sm">{data.tag}</span> */}
-                <div className='absolute top-2 right-2'>
+                <div className="absolute top-2 right-2">
                     <Tag tag={data.categoria.nome || data.categoria.categoria} />
                 </div>
                 <Link href={`/blog/${data.slug}`}>
@@ -19,7 +19,7 @@ const Post = ({ data }) => {
                     />
                 </Link>
             </div>
-            <div className='mt-2'>
+            <div className="mt-2">
                 <Link href={`/blog/${data.slug}`}>
                     <h3>{data.title}</h3>
                 </Link>

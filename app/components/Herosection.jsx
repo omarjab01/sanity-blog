@@ -4,7 +4,7 @@ const Herosection = () => {
     return (
         <div className="flex flex-row items-center gap-8">
             <div>
-                <h4>Hello there, i'm omar</h4>
+                <h4>Hello there, i&apos;m omar</h4>
                 <p>Web Developer</p>
             </div>
             {/* <Image src="" /> */}

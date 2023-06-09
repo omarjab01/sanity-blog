@@ -1,6 +1,8 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
-import Navbar from './components/Navbar'
+import Navbar from './components/layoutComponents/Navbar'
+import Footer from './components/layoutComponents/Footer'
+import Body from './components/layoutComponents/Body'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,11 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-white dark:bg-gray-950`}>
-        <main className="max-w-7xl mx-auto min-h-screen text-black dark:text-white">
-          <Navbar />
-          <div className='p-8'>{children}</div>
-        </main>
+      <body className={`${inter.className} bg-white text-black min-h-screen flex flex-col`}>
+        <Navbar />
+        <Body>{children}</Body>
+        <Footer />
       </body>
     </html>
   )

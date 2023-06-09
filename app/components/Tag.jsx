@@ -1,7 +1,5 @@
-import React from 'react'
 
 const Tag = ({ tag }) => {
-  console.log(tag)
   switch (tag) {
     case 'Javascript':
       var style = "bg-yellow-200 text-black"
@@ -21,8 +19,6 @@ const Tag = ({ tag }) => {
     default:
       break;
   }
-
-
   return (
     <div className={`${style} px-3 py-1 w-fit rounded-full text-xs`}>{tag}</div>
   )

@@ -1,10 +1,13 @@
 import { urlFor } from "@/sanity/sanity-utils"
+import Image from "next/image"
 
 const CustomPortableText = {
   types: {
     image: ({ value, isInline }) => {
-      return <img
+      return <Image
         src={urlFor().image(value).fit('max').auto('format').url()}
+        width={1280}
+        height={720}
         className="rounded-md my-4"
       />
     },
