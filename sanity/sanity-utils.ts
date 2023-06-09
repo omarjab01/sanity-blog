@@ -12,7 +12,7 @@ const client = createClient({
 
 const builder = ImageUrlBuilder(client)
 
-export function urlFor(source) {
+export function urlFor(source: string) {
   return builder.image(source)
 }
 
