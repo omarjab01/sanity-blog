@@ -22,7 +22,7 @@ const CustomPortableText = {
     h4: ({ children }) => <h4 className="text-2xl font-semibold mb-4">{children}</h4>,
     h5: ({ children }) => <h5 className="text-xl font-semibold mb-4">{children}</h5>,
     h6: ({ children }) => <h6 className="text-lg font-semibold mb-4">{children}</h6>,
-    normal: ({ children }) => <p className="leading-8">{children}</p>
+    normal: ({ children }) => <p className="leading-8 text-black dark:text-slate-400">{children}</p>
   },
 
 }

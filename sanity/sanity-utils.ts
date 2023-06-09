@@ -36,3 +36,18 @@ export async function getPost(slug: string): Promise <PostType>{
         }`, {slug}
     )
 }
+
+export async function getCategoryPost(category: string): Promise <PostType>{
+    return client.fetch(
+        groq`*[_type == 'blog' && category.slug == $category]{
+            _id, _createdAt, title, description, "slug": slug.current, "image": image.asset->url,
+            'categoria' : *[_id == ^.categoria._ref][0],
+            content, dataPubblicazione
+        }`, {category}
+    )
+}
+
+
+export function convertToSlug(input: string) {
+    return input.toLowerCase().replace(/\s+/g, '-');
+}

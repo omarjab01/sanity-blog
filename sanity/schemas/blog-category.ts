@@ -7,7 +7,13 @@ const categoria = {
             name: 'nome',
             title: 'Nome',
             type: 'string'
-        }
+        },
+        {
+            name: 'slug',
+            title: 'Slug',
+            type: 'slug',
+            options: {source: 'nome'}
+        },
     ]
 }
 

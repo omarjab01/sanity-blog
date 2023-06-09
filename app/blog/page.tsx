@@ -1,14 +1,12 @@
 'use client'
-import React, {useRef} from 'react'
+import React from 'react'
 import {AiOutlineSearch} from 'react-icons/ai'
 import PostsList from '@/app/components/PostsList'
 import { getPosts } from '@/sanity/sanity-utils'
 import {Suspense} from 'react'
 
 const BlogPage = async () => {
-  // const search = useRef('')
   const posts = getPosts()
-  // const router = useRouter();
   return (
     <div>
       <h4>Blog Page</h4>
