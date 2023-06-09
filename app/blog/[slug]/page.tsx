@@ -1,6 +1,6 @@
-import { getPost } from '@/sanity/sanity-utils'
+import { getPost, getPosts } from '@/sanity/sanity-utils'
 import {Suspense} from 'react'
-import PostLayout from '@/app/components/layoutComponents/PostLayout'
+import PostLayout from '@/app/components/postLayout/PostLayout'
 
 type paramsType = {
   params: {
@@ -10,6 +10,7 @@ type paramsType = {
 
 export const generateMetadata = async ({params} : paramsType) => {
   const post = await getPost(params.slug)
+  
   return {
     title: post.title,
     description: post.description
@@ -25,5 +26,12 @@ const page = async ({params} : paramsType) => {
       </Suspense>
   )
 }
+
+
+export async function generateStaticParams(){
+  const posts = await getPosts()
+  return posts.map(post => {slug: post.slug})
+}
+
 
 export default page

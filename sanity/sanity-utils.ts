@@ -39,11 +39,32 @@ export async function getPost(slug: string): Promise <PostType>{
 
 export async function getCategoryPost(category: string): Promise <PostType>{
     return client.fetch(
-        groq`*[_type == 'blog' && category.slug == $category]{
-            _id, _createdAt, title, description, "slug": slug.current, "image": image.asset->url,
-            'categoria' : *[_id == ^.categoria._ref][0],
-            content, dataPubblicazione
-        }`, {category}
+        groq`*[_type == 'blog' && categoria._ref in *[_type == 'categoria' && slug.current == $category]._id]{
+            _id,
+            _createdAt,
+            title,
+            description, 
+            "slug": slug.current,
+            "image": image.asset->url,
+            "categoria": *[_id == ^.categoria._ref][0],
+            content
+      }`, {category}
+    )
+}
+
+export async function getCategoriesSlug(): Promise<[]>{
+    return client.fetch(
+        groq` *[_type=="categoria"]{
+            "slug" : slug.current
+          }`
+    )
+}
+
+export async function categoryNameFromSlug(slug){
+    return client.fetch(
+        groq`*[_type == 'categoria' && slug.current == $slug][0]{
+            nome
+        }`, {slug}
     )
 }
 
