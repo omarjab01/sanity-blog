@@ -16,13 +16,31 @@ export function urlFor(source: string) {
   return builder.image(source)
 }
 
-export async function getPosts(): Promise <PostType[]>{
+export async function getPosts(pagina: number): Promise <PostType[]>{
+
+    // 1 -> 0, 9
+    // 2 -> 10, 18
+
     return client.fetch(
         groq`*[_type == 'blog']{
             _id, _createdAt, title, description, "slug": slug.current, "image": image.asset->url,
             'categoria' : *[_id == ^.categoria._ref][0],
             content, dataPubblicazione
         }`
+    )
+}
+
+export async function getLatestPosts(): Promise <PostType[]>{
+
+    var inizio = 0;
+    var fine = 2
+
+    return client.fetch(
+        groq`*[_type == 'blog'][$inizio..$fine] | order(dataPubblicazione desc){
+            _id, _createdAt, title, description, "slug": slug.current, "image": image.asset->url,
+            'categoria' : *[_id == ^.categoria._ref][0],
+            content, dataPubblicazione
+        }`, {inizio, fine}
     )
 }
 
@@ -60,7 +78,7 @@ export async function getCategoriesSlug(): Promise<[]>{
     )
 }
 
-export async function categoryNameFromSlug(slug){
+export async function categoryNameFromSlug(slug: string){
     return client.fetch(
         groq`*[_type == 'categoria' && slug.current == $slug][0]{
             nome

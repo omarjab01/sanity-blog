@@ -1,12 +1,10 @@
-import Herosection from './components/Herosection'
-import Post from './components/Post'
-import { getPosts } from '@/sanity/sanity-utils'
+import { getLatestPosts } from '@/sanity/sanity-utils'
 import PostsList from './components/PostsList';
 
 
 export default async function Home() {
   // const posts = await getPosts()
-  const posts = getPosts();
+  const posts = getLatestPosts();
   return (
     <div>
       {/* <Herosection /> */}

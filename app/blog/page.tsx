@@ -1,12 +1,21 @@
 'use client'
-import React from 'react'
+import {useState, useEffects} from 'react'
 import {AiOutlineSearch} from 'react-icons/ai'
 import PostsList from '@/app/components/PostsList'
 import { getPosts } from '@/sanity/sanity-utils'
 import {Suspense} from 'react'
+import PostsListNoAsync from '../components/PostsListNoAsync'
 
 const BlogPage = async () => {
-  const posts = getPosts()
+  const [numPagina, setNumPagina] = useState(1)
+  const [posts, setPosts] = useState(await getPosts(numPagina))
+  useEffects(() => {
+    const changePage = async () => {
+      setPosts(await getPosts(numPagina))
+    }
+
+    changePage();
+  }, [numPagina])
   return (
     <div>
       <h4>Blog Page</h4>
@@ -19,9 +28,15 @@ const BlogPage = async () => {
         </button>
       </form>
 
-      <Suspense fallback={<h3>Caricando...</h3>}>
+      <PostsListNoAsync promise={posts}/>
+
+      {/* <Suspense fallback={<h3>Caricando...</h3>}>
         <PostsList promise={posts}/>
-      </Suspense>
+      </Suspense> */}
+
+      <div>
+        <button onClick={() => setNumPagina(prev => prev+1)}>next  page</button>
+      </div>
     </div>
   )
 }
