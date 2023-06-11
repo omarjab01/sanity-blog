@@ -7,7 +7,7 @@ const PostHeader = ({post}) => {
   return (
     <header className="border-b border-b-slate-100 pb-8">
         <h1 className="text-4xl font-semibold mb-4 text-black">{post.title}</h1>
-        <p className="text-gray-900 dark:text-gray-800 mb-4">{post.description}</p>
+        {post.description && post.description !=  <p className="text-gray-900 dark:text-gray-800 mb-4">{post.description}</p>}
         <div className="mb-5 flex flex-row items-center gap-2">
           <Tag tag={post?.categoria?.nome || post?.categoria?.categoria}/>
           <p>{post?.dataPubblicazione}</p>

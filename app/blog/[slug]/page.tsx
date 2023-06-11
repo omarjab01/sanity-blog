@@ -2,6 +2,8 @@ import { getPost, getPosts } from '@/sanity/sanity-utils'
 import {Suspense} from 'react'
 import PostLayout from '@/app/components/postLayout/PostLayout'
 
+export const revalidate = 60
+
 type paramsType = {
   params: {
     slug: string

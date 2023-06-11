@@ -8,25 +8,25 @@ export const categories = [
     {
         name: 'CSS',
         slug: 'css',
-        textStyle: 'text-black',
+        textStyle: 'text-white',
         bgStyle: 'bg-blue-400'
     },
     {
         name: 'HTML',
         slug: 'html',
-        textStyle: 'text-black',
-        bgStyle: 'bg-orange-400'
+        textStyle: 'text-white',
+        bgStyle: 'bg-orange-500'
     },
     {
         name: 'React Js',
         slug: 'react-js',
         textStyle: 'text-white',
-        bgStyle: 'bg-blue-400'
+        bgStyle: 'bg-blue-500'
     },
     {
         name: 'Javascript',
         slug: 'javascript',
         textStyle: 'text-black',
-        bgStyle: 'bg-yellow-400'
+        bgStyle: 'bg-yellow-300'
     },
 ]

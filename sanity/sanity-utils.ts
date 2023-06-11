@@ -2,9 +2,10 @@ import { PostType } from "@/types/blog";
 import { createClient, groq } from "next-sanity";
 import ImageUrlBuilder from '@sanity/image-url';
 
+const projectId = "inclc88x"
 
 const client = createClient({
-    projectId: "inclc88x",
+    projectId: projectId,
     dataset: "production",
     apiVersion: "2023-06-04",
     useCdn: true
@@ -16,13 +17,9 @@ export function urlFor(source: string) {
   return builder.image(source)
 }
 
-export async function getPosts(pagina: number): Promise <PostType[]>{
-
-    // 1 -> 0, 9
-    // 2 -> 10, 18
-
+export async function getPosts(): Promise <PostType[]>{
     return client.fetch(
-        groq`*[_type == 'blog']{
+        groq`*[_type == 'blog'] | order(dataPubblicazione desc){
             _id, _createdAt, title, description, "slug": slug.current, "image": image.asset->url,
             'categoria' : *[_id == ^.categoria._ref][0],
             content, dataPubblicazione
@@ -33,7 +30,7 @@ export async function getPosts(pagina: number): Promise <PostType[]>{
 export async function getLatestPosts(): Promise <PostType[]>{
 
     var inizio = 0;
-    var fine = 2
+    var fine = 9
 
     return client.fetch(
         groq`*[_type == 'blog'][$inizio..$fine] | order(dataPubblicazione desc){
@@ -86,7 +83,16 @@ export async function categoryNameFromSlug(slug: string){
     )
 }
 
-
 export function convertToSlug(input: string) {
     return input.toLowerCase().replace(/\s+/g, '-');
+}
+
+export async function getFilteredPosts(q: string): Promise <PostType[]>{
+    return client.fetch(
+        groq`*[_type == 'blog'][title match '*${q}*'] | order(dataPubblicazione desc){
+            _id, _createdAt, title, description, "slug": slug.current, "image": image.asset->url,
+            'categoria' : *[_id == ^.categoria._ref][0],
+            content, dataPubblicazione
+        }`
+    )
 }

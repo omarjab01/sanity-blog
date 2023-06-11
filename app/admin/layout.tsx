@@ -1,5 +1,3 @@
-
-  
 export default function AdminLayout({
   children,
 }: {
@@ -11,5 +9,3 @@ export default function AdminLayout({
     </>
   )
 }
-
-// export default layout
