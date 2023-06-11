@@ -19,8 +19,9 @@ const page = () => {
           When it comes to creating captivating designs, I primarily utilize Figma for UI/UX purposes.<br />
           In addition to that, I possess proficiency in the Adobe suite, ensuring a comprehensive approach to design.
           </p>
-          <div className='mt-8'>
+          <div className='mt-8 flex flex-row gap-8'>
             <Link href="https://twitter.com/its_omarjab" target='_blank' className='text-blue-500 font-semibold'>Twitter</Link>
+            <Link href="https://www.youtube.com/channel/UC5neWofQUBKTtQ3e_MODEZA" target='_blank' className='text-red-500 font-semibold'>Youtube</Link>
           </div>
         </div>
       </section>

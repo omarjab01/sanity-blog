@@ -21,7 +21,7 @@ const Post = ({ data }) => {
             </div>
             <div className="mt-2">
                 <Link href={`/blog/${data.slug}`}>
-                    <h3>{data.title}</h3>
+                    <h3 className='text-lg font-semibold'>{data.title}</h3>
                 </Link>
             </div>
         </article>
