@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
 import Tag from '../Tag'
-import { PostType } from '@/types/blog'
 
 const PostHeader = ({post}) => {
   return (
