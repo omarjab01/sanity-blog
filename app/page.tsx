@@ -4,7 +4,7 @@ import PostsList from './components/PostsList';
 export const revalidate = 60
 
 export const metadata = {
-  title: 'Homepage',
+  title: 'Omar Jabraoui',
   description: 'Web Designer and Developer',
 }
 

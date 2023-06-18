@@ -7,11 +7,6 @@ import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
-  title: 'Omar Jabraoui',
-  description: 'Web Designer and Developer',
-}
-
 export default function RootLayout({
   children,
 }: {
