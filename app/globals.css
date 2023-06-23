@@ -2,47 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* .containerPostContent{
-  background-color: red;
-} */
-
-/* .containerPostContent h1{
-  font-size: 2.25rem;
-  margin-bottom: 1.5rem;
-  font-weight: bolder;
+.bgMacbook{
+  background-image: url('../public/macbook.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.containerPostContent h2{
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  font-weight: bolder;
+.services li::before{
+  content: '\2713';
+  margin-right: 1rem;
+  color: black;
+  font-weight: 800;
 }
-
-.containerPostContent h3{
-  font-size: 1.75rem;
-  margin-bottom: 1.5rem;
-  font-weight: bolder;
-}
-
-.containerPostContent h4{
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  font-weight: bolder;
-}
-
-.containerPostContent h5{
-  font-size: 0.75rem;
-  margin-bottom: 1.5rem;
-  font-weight: bolder;
-}
-
-.containerPostContent h6{
-  font-size: 0.5rem;
-  margin-bottom: 1.5rem;
-  font-weight: bolder;
-}
-
-.containerPostContent code{
-  padding: .5rem;
-  border-radius: 8px;
-} */
